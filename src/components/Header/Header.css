@@ -1,0 +1,60 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__branding {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header__app-name {
+  font-size: 36px;
+  font-weight: 600;
+  color: #00d4ff;
+  text-shadow:
+    0 0 10px #00d4ffcc,
+    0 0 20px #00d4ff66;
+}
+
+.header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  list-style-type: none;
+}
+
+.header__nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 25px;
+  border-radius: 24px;
+  background-color: #1a1a24;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header__nav-item_glow_magenta {
+  border: solid 1px #ff00ff66;
+  box-shadow:
+    0 0 20px #ff00ff4d,
+    0 0 40px #ff00ff26,
+    inset 0 0 20px #ff00ff1a;
+}
+
+.header__nav-item_glow_green {
+  border: solid 1px #39ff1466;
+  box-shadow:
+    0 0 20px #39ff144d,
+    0 0 40px #39ff1426,
+    inset 0 0 20px #39ff141a;
+}
+
+.header__nav-item:hover {
+  box-shadow:
+    0 0 30px #00d4ff80,
+    0 0 60px #00d4ff40;
+}

@@ -1,0 +1,18 @@
+.footer {
+  position: fixed;
+  bottom: 20px;
+  padding: 0 20px;
+  left: 0;
+  width: calc(100% - 40px);
+  display: flex;
+  justify-content: center;
+}
+
+.footer__text {
+  margin: 0;
+  text-align: center;
+  color: #ff00ff;
+  text-shadow:
+    0 0 10px #ff00ffcc,
+    0 0 20px #ff00ff66;
+}

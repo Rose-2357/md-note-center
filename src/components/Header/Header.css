@@ -10,6 +10,11 @@
   gap: 12px;
 }
 
+.header__logo {
+  width: 40px;
+  height: 40px;
+}
+
 .header__app-name {
   font-size: 36px;
   font-weight: 600;
@@ -20,6 +25,7 @@
 }
 
 .header__nav-list {
+  padding: 0;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -57,4 +63,28 @@
   box-shadow:
     0 0 30px #00d4ff80,
     0 0 60px #00d4ff40;
+}
+
+@media (max-width: 850px) {
+  .header {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 450px) {
+  .header__branding {
+    gap: 8px;
+  }
+  .header__logo {
+    width: 30px;
+    height: 30px;
+  }
+  .header__app-name {
+    font-size: 28px;
+  }
+  .header__nav-list {
+    flex-direction: column;
+    gap: 20px;
+  }
 }

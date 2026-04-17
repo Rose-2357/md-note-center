@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header__branding">
-        <img src={logo} alt="MD Note Center Logo" />
+        <img src={logo} alt="MD Note Center Logo" className="header__logo" />
         <h1 className="header__app-name">MD NoteCenter</h1>
       </div>
       <nav className="header__nav">

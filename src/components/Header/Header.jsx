@@ -13,8 +13,12 @@ export default function Header() {
       <nav className="header__nav">
         <ul className="header__nav-list">
           <li className="header__nav-item header__nav-item_glow_magenta">
-            <img src={bookSvg} alt="My Notes" className="header__nav-icon" />
-            <span>My Notes</span>
+            <img
+              src={bookSvg}
+              alt="Syntax Guide"
+              className="header__nav-icon"
+            />
+            <span>Syntax Guide</span>
           </li>
           <li className="header__nav-item header__nav-item_glow_green">
             <img src={plusSvg} alt="New Note" className="header__nav-icon" />

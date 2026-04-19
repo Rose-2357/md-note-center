@@ -1,4 +1,5 @@
 import fileIcon from "../../assets/file-icon.svg";
+import checklistIcon from "../../assets/checklist-icon.svg";
 import timeDifferenceFormatter from "../../utils/timeConvertor";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -10,10 +11,19 @@ export default function Card({ note }) {
     <Tag className="card__markdown card__markdown_type_header">{children}</Tag>
   );
 
+  const icon =
+    note.content.includes("- [ ]") || note.content.includes("- [x]")
+      ? checklistIcon
+      : fileIcon;
+
   return (
     <li className="card">
       <div className="card__header">
-        <img src={fileIcon} alt="File Icon" className="card__icon" />
+        <img
+          src={icon}
+          alt={icon === checklistIcon ? "Checklist Icon" : "File Icon"}
+          className="card__icon"
+        />
         <h2 className="card__title">{note.title}</h2>
       </div>
       <div className="card__content">
@@ -31,6 +41,36 @@ export default function Card({ note }) {
                 {children}
               </p>
             ),
+            li: ({ children, checked }) => {
+              if (checked !== undefined || checked !== null) {
+                const checked = children[0].props.checked;
+                return (
+                  <li
+                    className={`card__markdown card__markdown_type_checklist-item ${checked ? "card__markdown_type_checked-item" : ""}`}
+                  >
+                    {children}
+                  </li>
+                );
+              }
+              return (
+                <li className="card__markdown card__markdown_type_list-item">
+                  {children}
+                </li>
+              );
+            },
+            input: ({ type, checked }) => {
+              if (type === "checkbox") {
+                return (
+                  <input
+                    type="checkbox"
+                    checked={checked}
+                    readOnly
+                    className="card__markdown_type_checkbox"
+                  />
+                );
+              }
+              return <input type={type} />;
+            },
           }}
         >
           {normalizeMarkdown(note.content)}

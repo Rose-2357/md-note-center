@@ -90,7 +90,9 @@ export const defaultNotes = [
     id: "7",
     title: "Sample Note 5",
     content: `
-    # Sample Note 5
+    - [ ] Task 1
+    - [x] Task 2
+    - [ ] Task 3
     This is yet another sample note to demonstrate the Markdown syntax.
     lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut 
     labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 

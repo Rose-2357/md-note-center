@@ -62,7 +62,7 @@ export const defaultNotes = [
     id: "5",
     title: "Sample Note 3",
     content: `
-    # Sample Note 3
+    # Sample Note 3 log header ahhhhhhhh its so longgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
     This is yet another sample note to demonstrate the Markdown syntax.
     lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut 
     labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
@@ -77,7 +77,7 @@ export const defaultNotes = [
     title: "Sample Note 4",
     content: `
     # Sample Note 4
-    This is yet another sample note to demonstrate the Markdown syntax.
+    This is *yet* **another** ~~sample~~ note to demonstrate the Markdown syntax.
     lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut 
     labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
     nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 

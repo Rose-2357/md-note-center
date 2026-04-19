@@ -4,7 +4,7 @@
   width: 100%;
   height: 100%;
   border-radius: 24px;
-  padding: 33px;
+  padding: 16px 33px;
   border: solid 1px rgba(var(--glow-color), 0.4);
   box-shadow:
     0 0 20px rgba(var(--glow-color), 0.3),
@@ -47,6 +47,7 @@
   overflow: hidden;
   position: relative;
   font-size: 16px;
+  line-height: 1.4;
 }
 
 .card__footer {
@@ -62,4 +63,14 @@
   gap: 16px;
   padding: 0;
   list-style-type: none;
+}
+
+.card__markdown {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.card__markdown_type_header {
+  font-weight: 600;
 }

@@ -6,8 +6,6 @@ export default function timeDifferenceFormatter(timeInMs) {
   const months = Math.floor(days / 30);
   const years = Math.floor(months / 12);
 
-  console.log(timeInMs);
-
   if (years > 0) {
     return `${years} year${years !== 1 ? "s" : ""} ago`;
   }

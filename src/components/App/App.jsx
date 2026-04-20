@@ -1,6 +1,5 @@
-import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import Main from "../Main/Main";
+import Dashboard from "../Dashboard/Dashboard";
 import "./App.css";
 import { defaultNotes } from "../../utils/constants";
 import { NotesContext } from "../../contexts/NotesContext";
@@ -12,8 +11,7 @@ export default function App() {
     <NotesContext.Provider value={{ notes }}>
       <div className="app">
         <div className="app__content">
-          <Header />
-          <Main />
+          <Dashboard />
           <Footer />
         </div>
       </div>

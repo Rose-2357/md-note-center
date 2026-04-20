@@ -85,3 +85,233 @@
   grid-column: 7 / span 4;
   grid-row: span 1;
 }
+
+@media (max-width: 1320px) {
+  .card-list {
+    grid-auto-rows: 250px;
+  }
+}
+
+@media (max-width: 1170px) {
+  .card-list > .card:nth-child(1) {
+    --glow-color: 0, 212, 255;
+    grid-column: span 4;
+    grid-row: span 2;
+  }
+
+  .card-list > .card:nth-child(2) {
+    --glow-color: 57, 255, 20;
+    grid-column: span 4;
+    grid-row: span 2;
+  }
+
+  .card-list > .card:nth-child(3) {
+    --glow-color: 255, 0, 255;
+    grid-column: span 4;
+    grid-row: span 1;
+  }
+
+  .card-list > .card:nth-child(10n + 4) {
+    --glow-color: 0, 212, 255;
+    grid-column: 1 / span 6;
+    grid-row: span 1;
+  }
+
+  .card-list > .card:nth-child(10n + 5) {
+    --glow-color: 255, 0, 255;
+    grid-column: 9 / span 6;
+    grid-row: span 1;
+  }
+
+  .card-list > .card:nth-child(10n + 6) {
+    --glow-color: 57, 255, 20;
+    grid-column: 4 / span 5;
+    grid-row: span 2;
+  }
+
+  .card-list > .card:nth-child(10n + 7) {
+    --glow-color: 0, 212, 255;
+    grid-column: span 5;
+    grid-row: span 1;
+  }
+
+  .card-list > .card:nth-child(10n + 8) {
+    --glow-color: 0, 212, 255;
+    grid-column: 1 / span 6;
+    grid-row: span 1;
+  }
+
+  .card-list > .card:nth-child(10n + 9) {
+    --glow-color: 255, 0, 255;
+    grid-column: 9 / span 4;
+    grid-row: span 2;
+  }
+
+  .card-list > .card:nth-child(10n + 10) {
+    --glow-color: 57, 255, 20;
+    grid-column: span 4;
+    grid-row: span 1;
+  }
+
+  .card-list > .card:nth-child(10n + 11) {
+    --glow-color: 0, 212, 255;
+    grid-column: span 4;
+    grid-row: span 1;
+  }
+
+  .card-list > .card:nth-child(10n + 12) {
+    --glow-color: 255, 0, 355;
+    grid-column: 3 / span 4;
+    grid-row: span 1;
+  }
+
+  .card-list > .card:nth-child(10n + 13) {
+    --glow-color: 0, 212, 255;
+    grid-column: 7 / span 6;
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 930px) {
+  .card-list {
+    grid-auto-rows: 200px;
+  }
+
+  .card-list > .card:nth-child(1) {
+    --glow-color: 0, 212, 255;
+    grid-column: span 6;
+    grid-row: span 2;
+  }
+
+  .card-list > .card:nth-child(2) {
+    --glow-color: 57, 255, 20;
+    grid-column: span 6;
+    grid-row: span 2;
+  }
+
+  .card-list > .card:nth-child(3) {
+    --glow-color: 255, 0, 255;
+    grid-column: 1 / 13;
+    grid-row: span 1;
+  }
+
+  .card-list > .card:nth-child(10n + 4) {
+    --glow-color: 0, 212, 255;
+    grid-column: 7 / span 6;
+    grid-row: span 2;
+  }
+
+  .card-list > .card:nth-child(10n + 5) {
+    --glow-color: 57, 255, 20;
+    grid-column: span 6;
+    grid-row: span 1;
+  }
+
+  .card-list > .card:nth-child(10n + 6) {
+    --glow-color: 255, 0, 255;
+    grid-column: 5 / span 8;
+    grid-row: span 1;
+  }
+
+  .card-list > .card:nth-child(10n + 7) {
+    --glow-color: 0, 212, 255;
+    grid-column: span 6;
+    grid-row: span 1;
+  }
+
+  .card-list > .card:nth-child(10n + 8) {
+    --glow-color: 57, 255, 20;
+    grid-column: span 6;
+    grid-row: span 1;
+  }
+
+  .card-list > .card:nth-child(10n + 9) {
+    --glow-color: 57, 255, 20;
+    grid-column: span 8;
+    grid-row: span 1;
+  }
+
+  .card-list > .card:nth-child(10n + 10) {
+    --glow-color: 255, 0, 255;
+    grid-column: span 6;
+    grid-row: span 1;
+  }
+
+  .card-list > .card:nth-child(10n + 11) {
+    --glow-color: 0, 212, 255;
+    grid-column: span 6;
+    grid-row: span 2;
+  }
+
+  .card-list > .card:nth-child(10n + 12) {
+    --glow-color: 57, 255, 20;
+    grid-column: span 6;
+    grid-row: span 1;
+  }
+
+  .card-list > .card:nth-child(10n + 13) {
+    --glow-color: 255, 0, 255;
+    grid-column: span 12;
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 650px) {
+  .card-list {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .card-list > .card:nth-child(1) {
+    --glow-color: 0, 212, 255;
+    grid-column: span 12;
+    grid-row: span 2;
+  }
+
+  .card-list > .card:nth-child(3n + 2) {
+    --glow-color: 57, 255, 20;
+    grid-column: span 12;
+    grid-row: span 1;
+  }
+
+  .card-list > .card:nth-child(3n + 3) {
+    --glow-color: 255, 0, 255;
+    grid-column: span 12;
+    grid-row: span 1;
+  }
+
+  .card-list > .card:nth-child(3n + 4) {
+    --glow-color: 0, 212, 255;
+    grid-column: span 12;
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 350px) {
+  .card-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-list > .card:nth-child(1) {
+    --glow-color: 0, 212, 255;
+    height: 400px;
+  }
+
+  .card-list > .card:nth-child(3n + 2) {
+    --glow-color: 57, 255, 20;
+    height: 250px;
+  }
+
+  .card-list > .card:nth-child(3n + 3) {
+    --glow-color: 255, 0, 255;
+    height: 250px;
+  }
+
+  .card-list > .card:nth-child(3n + 4) {
+    --glow-color: 0, 212, 255;
+    height: 250px;
+  }
+}

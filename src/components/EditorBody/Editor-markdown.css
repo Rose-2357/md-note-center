@@ -114,7 +114,7 @@
 .md-ol {
   padding: 0;
   padding-left: 15px;
-  margin: 8px 0;
+  margin: 16px 0;
 }
 
 .md-li {
@@ -252,4 +252,56 @@ p > .md-code {
     0 0 20px #0000ee;
 
   opacity: 0.9;
+}
+
+.md-li:has(.md-checkbox) {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.md-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(0, 212, 255, 0.4);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  position: relative;
+  margin-right: 12px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.md-checkbox:hover {
+  border-color: #00d4ff;
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
+}
+
+.md-checkbox:checked {
+  background: #00d4ff;
+  border-color: #00d4ff;
+  box-shadow:
+    0 0 15px #00d4ff,
+    inset 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.md-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid #000;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+/* Styling the text when checked (Optional) */
+.md-li:has(.md-checkbox:checked) {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: line-through rgba(255, 0, 255, 0.5); /* Magenta line */
 }

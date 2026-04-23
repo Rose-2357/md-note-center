@@ -1,18 +1,24 @@
 import { useContext, useEffect } from "react";
 import { SelectedNote } from "../../contexts/SelectedNoteContext";
+import { NotesStateContext } from "../../utils/NotesStateContext";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import normilizeMarkdown from "../../utils/normilizeMarkdown";
 import Tiptap from "../TipTap/TipTap";
 import "./EditorBody.css";
 import "./Editor-markdown.css";
+import { nthOccurance } from "../../utils/nthOccurance";
 
 export default function EditorBody({ renderMode }) {
   const note = useContext(SelectedNote);
 
+  const [notes, setNotes] = useContext(NotesStateContext);
+
   note.content = normilizeMarkdown(note.content);
 
   const footnoteRefs = {};
+
+  let checkboxIds = [];
 
   const markdownComponents = {
     h1: ({ children }) => <h1 className="md-h1">{children}</h1>,
@@ -80,6 +86,37 @@ export default function EditorBody({ renderMode }) {
     th: ({ children }) => <th className="md-th">{children}</th>,
     td: ({ children }) => <td className="md-td">{children}</td>,
     hr: () => <hr className="md-hr" />,
+    input: ({ type, checked }) => {
+      if (type === "checkbox") {
+        if (checkboxIds.length === 0) {
+          checkboxIds = [1];
+        } else {
+          checkboxIds = [...checkboxIds, checkboxIds.length + 1];
+        }
+        return (
+          <input
+            data-id={checkboxIds[checkboxIds.length - 1]}
+            type="checkbox"
+            checked={checked}
+            className="md-checkbox"
+            onChange={(e) => {
+              const indexOfChanged = nthOccurance(
+                note.content.replace(/- \[[ xX]\]*/g, "- [ ]"),
+                "- [ ]",
+                e.target.dataset.id / 2,
+              );
+              note.content =
+                note.content.substring(0, indexOfChanged) +
+                (e.target.checked ? "- [x]" : "- [ ]") +
+                note.content.substring(indexOfChanged + 5);
+
+              setNotes([...notes.filter((n) => n.id !== note.id), note]);
+            }}
+          />
+        );
+      }
+      return <input type={type} />;
+    },
   };
 
   return (

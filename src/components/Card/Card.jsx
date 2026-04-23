@@ -41,9 +41,9 @@ export default function Card({ note }) {
                 {children}
               </p>
             ),
-            li: ({ children, checked }) => {
+            li: ({ children, checked = undefined }) => {
               if (checked !== undefined || checked !== null) {
-                const checked = children[0].props.checked;
+                const checked = children[0]?.props?.checked;
                 return (
                   <li
                     className={`card__markdown card__markdown_type_checklist-item ${checked ? "card__markdown_type_checked-item" : ""}`}

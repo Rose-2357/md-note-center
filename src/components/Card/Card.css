@@ -9,7 +9,7 @@
   box-shadow:
     0 0 20px rgba(var(--glow-color), 0.3),
     0 0 40px rgba(var(--glow-color), 0.15),
-    0 0 20px 1px rgba(var(--glow-color), 0.3);
+    inset 0 0 20px rgba(var(--glow-color), 0.1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 

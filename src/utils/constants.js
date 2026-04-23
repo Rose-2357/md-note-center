@@ -3,14 +3,58 @@ export const defaultNotes = [
     id: "1",
     title: "Welcome to MD Note Center",
     content: `
-    # Welcome to MD Note Center
-    This is your first note. You can edit or delete it, and create new notes using the "New Note"
-    button in the header.
-    lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut 
-    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
-    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
-    in culpa qui officia deserunt mollit anim id est laborum.`,
+    # Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
+
+This is a sentence that includes a footnote reference[^1].
+
+[^1]: This is the footnote text that typically appears at the bottom of the page.
+
+**bold text**
+
+*italic text*
+
+~~strikethrough text~~
+
+- Item 1
+- Item 2
+- Item 3
+
+1. First item
+2. Second item
+3. Third item
+
+- [x] Completed task
+- [ ] Uncompleted task
+- [ ] Another task
+
+[Link text](https://example.com)
+
+![Image Alt Text](https://images.unsplash.com/photo-1773332585698-cba3c91b73e4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxfHx8ZW58MHx8fHx8)
+
+\`inline code here\`
+
+\`\`\`language
+// Code block
+function test() {
+  console.log("Hello World");
+}
+\`\`\`
+> This is a blockquote. Use it for quotes or to highlight specific text.
+
+| Header 1 | Header 2 | Header 3 |
+|----------|----------|----------|
+| Cell A1   | Cell A2   | Cell A3   |
+| Cell B1   | Cell B2   | Cell B3   |
+
+---
+
+
+    `,
     tags: ["welcome", "introduction", "getting-started"],
     lastVisited: new Date("2026-04-19T00:00:00Z").toISOString(),
   },

@@ -1,0 +1,255 @@
+.md-h1 {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 16px 0 24px;
+  padding: 0;
+  color: #00d4ff;
+  text-shadow:
+    0 0 10px #00d4ffcc,
+    0 0 20px #00d4ff66;
+}
+
+.md-h2 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 32px 0 16px;
+  padding: 0;
+}
+
+.md-h3 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 24px 0 12px;
+  padding: 0;
+}
+
+.md-h4 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 16px 0 8px;
+  padding: 0;
+}
+
+.md-h5 {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 12px 0 4px;
+  padding: 0;
+}
+
+.md-h6 {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 8px 0 2px;
+  padding: 0;
+}
+
+.md-p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 8px 0;
+  padding: 0;
+}
+
+.md-strong {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 8px 0;
+  padding: 0;
+  color: #39ff14;
+  text-shadow:
+    0 0 10px #39ff14cc,
+    0 0 20px #39ff1466;
+}
+
+.md-em {
+  font-size: 16px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.5;
+  margin: 8px 0;
+  padding: 0;
+  color: #ff00ff;
+  text-shadow:
+    0 0 10px #ff00ffcc,
+    0 0 20px #ff00ff66;
+}
+
+.md-del {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 8px 0;
+  padding: 0;
+  position: relative;
+}
+
+.md-del::before {
+  content: "";
+  position: absolute;
+  top: 55%;
+  left: -2%;
+  width: 104%;
+  height: 2px;
+  background: #ff3131;
+  border-radius: 10px;
+  box-shadow:
+    0 0 2px #fff,
+    0 0 6px #ff3131,
+    0 0 12px #ff3131,
+    0 0 20px #ff0000;
+
+  opacity: 0.9;
+}
+
+.md-ul,
+.md-ol {
+  padding: 0;
+  padding-left: 15px;
+  margin: 8px 0;
+}
+
+.md-li {
+  margin: 40px 0;
+  padding: 0;
+}
+
+.md-a {
+  color: #4d4dff;
+  text-shadow:
+    0 0 10px #4d4dffcc,
+    0 0 20px #4d4dff66;
+}
+
+.md-a:hover {
+  color: #ff10f0;
+  text-shadow:
+    0 0 10px #ff10f0cc,
+    0 0 20px #ff10f066;
+}
+
+.md-a:active {
+  color: #ff88f7;
+  text-shadow:
+    0 0 10px #ff88f7cc,
+    0 0 20px #ff88f766;
+}
+
+.md-img {
+  margin: 24px 0;
+  max-width: 100%;
+  border-radius: 24px;
+  border: 1px solid #ff00ff66;
+  box-shadow:
+    0 0 20px #ff00ff4d,
+    0 0 40px #ff00ff26,
+    inset 0 0 20px #ff00ff1a;
+}
+
+.md-code {
+  margin: 8px 0;
+  font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+p > .md-code {
+  padding: 2px 4px;
+  border: 1px solid #00d4ff66;
+  border-radius: 4px;
+  box-shadow:
+    0 0 10px #00d4ff4d,
+    0 0 20px #00d4ff26,
+    inset 0 0 10px #00d4ff1a;
+}
+
+.md-pre {
+  margin: 32px 0;
+  padding: 16px 24px;
+  border-radius: 24px;
+  border: 1px solid #39ff1466;
+  box-shadow:
+    0 0 20px #39ff144d,
+    0 0 40px #39ff1426,
+    inset 0 0 20px #39ff141a;
+}
+
+.md-blockquote {
+  margin: 32px 0;
+  padding: 0 24px 0 48px;
+  border-radius: 24px;
+  position: relative;
+}
+
+.md-blockquote::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #ff00ff;
+  border-radius: 24px;
+  box-shadow:
+    0 0 10px #ff00ff4d,
+    0 0 20px #ff00ff26,
+    inset 0 0 10px #ff00ff1a;
+}
+
+.md-table {
+  margin: 32px 0;
+  border-radius: 24px;
+  border: 1px solid #ff00ff66;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-clip: padding-box;
+  box-shadow:
+    0 0 20px #ff00ff4d,
+    0 0 40px #ff00ff26,
+    inset 0 0 20px #ff00ff1a;
+  overflow: hidden;
+}
+
+.md-th,
+.md-td {
+  border: 1px solid #ff00ff66;
+  border-left: none;
+  border-top: none;
+  padding: 8px 16px;
+}
+
+.md-th {
+  color: #00d4ff;
+  text-shadow:
+    0 0 10px #00d4ffcc,
+    0 0 20px #00d4ff66;
+}
+
+.md-th:last-child,
+.md-td:last-child {
+  border-right: none;
+}
+
+.md-table tr:last-child .md-td {
+  border-bottom: none;
+}
+
+.md-hr {
+  content: "";
+  height: 2px;
+  background: #7700ee;
+  border-radius: 10px;
+  box-shadow:
+    0 0 2px #fff,
+    0 0 6px #7700ee,
+    0 0 12px #7700ee,
+    0 0 20px #0000ee;
+
+  opacity: 0.9;
+}

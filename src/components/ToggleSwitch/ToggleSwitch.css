@@ -1,0 +1,88 @@
+.switch__label {
+  border: 1px solid #39ff1466;
+  box-shadow:
+    0 0 20px #39ff144d,
+    0 0 40px #39ff1426,
+    inset 0 0 20px #39ff141a;
+  border-radius: 24px;
+  padding: 14px 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  width: fit-content;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.switch__label:hover {
+  box-shadow:
+    0 0 30px #39ff1480,
+    0 0 60px #39ff1440;
+}
+
+.switch__text-container {
+  display: flex;
+  position: relative;
+  gap: 4px;
+  margin: 0 auto;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.switch__text {
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.switch__text_checked {
+  color: #111;
+}
+
+.switch__text_length_short {
+  width: 66px;
+}
+
+.switch__text_length_long {
+  width: 86px;
+}
+.switch__checkbox {
+  position: absolute;
+  appearance: none;
+}
+
+.switch__slider {
+  position: absolute;
+  left: 5px;
+  width: 66px;
+  height: 80%;
+  border-radius: 24px;
+  background-color: #39ff14;
+  box-shadow: 0 0 20px #39ff1499;
+  transition: all 0.3s ease-in-out;
+}
+
+.switch:hover .switch__slider {
+  width: 70px;
+}
+
+.switch_active:hover .switch__slider {
+  width: 80px;
+}
+
+.switch__slider_checked {
+  transform: translateX(70px);
+  width: 86px;
+}
+
+.switch:hover .switch__slider_checked {
+  width: 90px;
+  transform: translateX(66px);
+}
+
+.switch_active:hover .switch__slider_checked {
+  width: 100px;
+  transform: translateX(56px);
+}

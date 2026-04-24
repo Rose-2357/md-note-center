@@ -6,7 +6,6 @@ import remarkGfm from "remark-gfm";
 import normilizeMarkdown from "../../utils/normilizeMarkdown";
 import Tiptap from "../TipTap/TipTap";
 import "./EditorBody.css";
-import "./Editor-markdown.css";
 import { nthOccurance } from "../../utils/nthOccurance";
 
 export default function EditorBody({ renderMode }) {
@@ -30,6 +29,7 @@ export default function EditorBody({ renderMode }) {
     p: ({ children }) => <p className="md-p">{children}</p>,
     sup: ({ children }) => {
       function handleClick() {
+        if (!children.props.href) return;
         footnoteRefs[children.props.href] = window.scrollY;
       }
 

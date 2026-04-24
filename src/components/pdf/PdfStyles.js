@@ -1,0 +1,194 @@
+import { StyleSheet } from "@react-pdf/renderer";
+import { Font } from "@react-pdf/renderer";
+import Inter from "../../vendor/fonts/inter/inter.ttf";
+import InterItalic from "../../vendor/fonts/inter-italic/inter-italic.ttf";
+import Consolas from "../../vendor/fonts/consolas/consolas.ttf";
+
+Font.register({
+  family: "Inter",
+  fonts: [
+    { src: Inter },
+    { src: InterItalic, fontStyle: "italic" },
+    { src: Inter, fontWeight: 700 },
+    { src: Inter, fontWeight: 600 },
+    { src: Inter, fontWeight: 500 },
+    { src: Inter, fontWeight: 400 },
+  ],
+});
+
+Font.register({
+  family: "Consolas",
+  fonts: [{ src: Consolas }],
+});
+
+export const styles = StyleSheet.create({
+  page: {
+    padding: 40,
+    backgroundColor: "#FFFFFF",
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: "#111",
+    color: "#f1f1f1",
+    overflow: "wrap",
+  },
+  h1: {
+    fontSize: 36,
+    marginTop: 16,
+    marginBottom: 24,
+    marginHorizontal: 0,
+    fontWeight: 700,
+    lineHeight: 1.2,
+    color: "#00d4ff",
+  },
+  h2: {
+    fontSize: 24,
+    marginTop: 32,
+    marginBottom: 16,
+    marginHorizontal: 0,
+    fontWeight: 700,
+    lineHeight: 1.2,
+  },
+  h3: {
+    fontSize: 20,
+    marginTop: 24,
+    marginBottom: 12,
+    marginHorizontal: 0,
+    fontWeight: 700,
+    lineHeight: 1.2,
+  },
+  h4: {
+    fontSize: 16,
+    marginTop: 20,
+    marginBottom: 8,
+    marginHorizontal: 0,
+    fontWeight: 700,
+    lineHeight: 1.2,
+  },
+  h5: {
+    fontSize: 14,
+    marginTop: 12,
+    marginBottom: 4,
+    marginHorizontal: 0,
+    fontWeight: 700,
+    lineHeight: 1.2,
+  },
+  h6: {
+    fontSize: 12,
+    marginTop: 8,
+    marginBottom: 2,
+    marginHorizontal: 0,
+    fontWeight: 700,
+    lineHeight: 1.2,
+  },
+  p: {
+    fontSize: 16,
+    marginTop: 8,
+    marginBottom: 4,
+    lineHeight: 2,
+    fontWeight: 400,
+    fontFamily: "Inter",
+  },
+  strong: {
+    fontSize: 16,
+    fontWeight: 700,
+    lineHeight: 1.5,
+    marginTop: 8,
+    marginBottom: 10,
+    color: "#39ff14",
+  },
+  em: {
+    fontSize: 16,
+    fontStyle: "italic",
+    lineHeight: 1.5,
+    fontWeight: 400,
+    marginTop: 8,
+    marginBottom: 10,
+    color: "#ff00ff",
+  },
+  del: {
+    fontSize: 16,
+    textDecoration: "line-through",
+    lineHeight: 1.5,
+    fontWeight: 400,
+    marginTop: 8,
+    marginBottom: 10,
+  },
+  sup: {
+    position: "absolute",
+    top: -10,
+    left: 0,
+    fontSize: 12,
+    lineHeight: 1.5,
+    fontWeight: 400,
+    marginTop: 8,
+    marginBottom: 10,
+  },
+
+  list: {
+    fontSize: 16,
+    lineHeight: 1.5,
+    fontWeight: 400,
+    marginTop: 8,
+    marginBottom: 10,
+  },
+  li: {
+    fontSize: 16,
+    lineHeight: 1.5,
+    fontWeight: 400,
+    marginVertical: 20,
+  },
+  img: {
+    width: 300,
+    marginBottom: 20,
+    borderRadius: 8,
+  },
+  blockquote: {
+    borderLeft: "3px solid #ff00ff",
+    paddingLeft: 16,
+  },
+  code: {
+    backgroundColor: "#1e1e1e",
+    fontSize: 16,
+    lineHeight: 1.5,
+    fontWeight: 400,
+    marginTop: 8,
+    marginBottom: 10,
+    fontFamily: "Consolas",
+    borderRadius: 4,
+    border: "1px solid #39ff14",
+    padding: 8,
+  },
+  table: {
+    border: "1px solid #ff00ff",
+    display: "table",
+    borderRadius: 8,
+    padding: 0,
+    margin: 8,
+    overflow: "hidden",
+  },
+  tr: {
+    display: "flex",
+    justifyContent: "space-evenly",
+    flexDirection: "row",
+  },
+  th: {
+    fontSize: 16,
+    flex: 1,
+    color: "#00d4ff",
+    lineHeight: 1.5,
+    fontWeight: 700,
+    border: "1px solid #ff00ff",
+    padding: 8,
+  },
+  td: {
+    fontSize: 16,
+    flex: 1,
+    lineHeight: 1.5,
+    fontWeight: 400,
+    border: "1px solid #ff00ff",
+    padding: 8,
+  },
+  hr: {
+    marginVertical: 12,
+  },
+});

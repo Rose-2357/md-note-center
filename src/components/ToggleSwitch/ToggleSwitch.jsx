@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { use, useState } from "react";
+import { useActive } from "../../hooks/useActive";
 import "./ToggleSwitch.css";
 
 export default function ToggleSwitch({
@@ -7,15 +8,8 @@ export default function ToggleSwitch({
   otherValue,
 }) {
   const [checked, setChecked] = useState(false);
-  const [active, setActive] = useState(false);
 
-  function handleMouseDown() {
-    setActive(true);
-  }
-
-  function handleMouseUp() {
-    setActive(false);
-  }
+  const [avtive, makeActive, makeInactive] = useActive("toggle");
 
   function handleChange() {
     setChecked((checked) => !checked);
@@ -29,10 +23,10 @@ export default function ToggleSwitch({
 
   return (
     <div
-      className={`switch ${active ? "switch_active" : ""}`}
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseUp}
+      className={`switch ${avtive.toggle ? "switch_active" : ""}`}
+      onMouseDown={() => makeActive("toggle")}
+      onMouseUp={() => makeInactive("toggle")}
+      onMouseLeave={() => makeInactive("toggle")}
     >
       <label className="switch__label">
         <input

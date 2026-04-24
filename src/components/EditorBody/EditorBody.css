@@ -1,28 +1,14 @@
-/* .editor-body {
-  margin: 130px auto 0;
-  max-width: 960px;
-  width: 100%;
-  z-index: -1;
-} */
-
 .editor-body {
   margin: 130px auto 0;
   max-width: 960px;
   width: 100%;
 
-  /* 1. Remove the negative z-index */
   z-index: 1;
 
-  /* 2. Ensure it defines its own position */
   position: relative;
 
-  /* 3. This is the magic line for back-links */
   overflow: visible;
-}
 
-/* Ensure the main container allows scrolling */
-html,
-body {
-  height: auto;
   overflow-y: auto;
+  overflow-x: hidden;
 }

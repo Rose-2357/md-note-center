@@ -300,7 +300,6 @@ p > .md-code {
   transform: rotate(45deg);
 }
 
-/* Styling the text when checked (Optional) */
 .md-li:has(.md-checkbox:checked) {
   color: rgba(255, 255, 255, 0.5);
   text-decoration: line-through rgba(255, 0, 255, 0.5); /* Magenta line */

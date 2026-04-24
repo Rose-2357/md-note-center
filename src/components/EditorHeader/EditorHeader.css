@@ -33,6 +33,7 @@
 
 .editor-header__content {
   margin: 0 auto;
+  padding: 0 32px;
   max-width: 960px;
   display: flex;
   align-items: center;
@@ -199,4 +200,34 @@
 
 .editor-header__download-menu-item_type_txt {
   --glow-color: 57, 255, 20;
+}
+
+@media (max-width: 800px) {
+  /* .editor-header__title {
+    font-size: 18px;
+  } */
+  .editor-header__go-back-icon {
+    width: 18px;
+    height: 18px;
+  }
+  .editor-header__go-back-button {
+    width: 32px;
+    height: 32px;
+  }
+  .editor-header__content {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 400px) {
+  .editor-header__menu-item_action_download {
+    padding: 12px;
+  }
+  .editor-header__menu-item-text_action_download {
+    display: none;
+  }
+  .editor-header__download-menu {
+    width: 150px;
+  }
 }

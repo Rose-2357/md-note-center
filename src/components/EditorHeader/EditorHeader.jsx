@@ -91,7 +91,9 @@ export default function EditorHeader({ setRenderMode }) {
                   alt="Download Icon"
                   className="editor-header__menu-icon editor-header__menu-icon_type_download"
                 />
-                <span>Download</span>
+                <span className="editor-header__menu-item-text_action_download">
+                  Download
+                </span>
               </div>
               <menu
                 className={`editor-header__download-menu ${isDownloadMenuOpen ? "editor-header__download-menu_open" : ""} `}

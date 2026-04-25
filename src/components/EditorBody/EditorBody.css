@@ -10,68 +10,13 @@
   overflow: visible;
 
   overflow-y: auto;
-  overflow-x: auto;
+  overflow-x: hidden;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
 }
 
-.editor-body::-webkit-scrollbar {
-  height: 16px;
-  background-color: #2a2a2a;
-}
-
-.editor-body::-webkit-scrollbar-thumb {
-  background-color: #999;
-  border: solid 3.5px #2a2a2a;
-  border-radius: 50px;
-}
-
-.editor-body::-webkit-scrollbar-thumb:hover {
-  cursor: grab;
-  background-color: #ccc;
-}
-
-.editor-body::-webkit-scrollbar-thumb:active {
-  cursor: grabbing;
-  background-color: #eee;
-}
-
-.editor-body::-webkit-scrollbar-track {
-  background-color: #2a2a2a;
-  border-radius: 4px;
-}
-
-.editor-body::-webkit-scrollbar-track:hover {
-  cursor: pointer;
-}
-
-.editor-body::-webkit-scrollbar-button {
-  display: none;
-  background-size: 16px 16px;
-  background-position: center;
-  background-repeat: no-repeat;
-  cursor: pointer;
-}
-
-.editor-body::-webkit-scrollbar-button:horizontal:end:increment {
-  display: block;
-  background-image: url(../../assets/right-arrow.svg);
-}
-
-.editor-body::-webkit-scrollbar-button:horizontal:end:active {
-  background-image: url(../../assets/right-arrow-active.svg);
-}
-
-.editor-body::-webkit-scrollbar-button:horizontal:start:decrement {
-  display: block;
-  background-image: url(../../assets/left-arrow.svg);
-}
-
-.editor-body::-webkit-scrollbar-button:horizontal:start:active {
-  background-image: url(../../assets/left-arrow-active.svg);
-}
-
-.editor-body::-webkit-scrollbar-corner {
-  background-color: #2a2a2a;
-}
 @media (max-width: 800px) {
   .editor-body {
     margin-top: 175px;

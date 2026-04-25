@@ -3,91 +3,15 @@
   height: calc(100vh - (130px + 150px));
   font-family: "Consolas", "Courier New", Courier, monospace;
   overflow-y: auto;
-  overflow-x: auto;
+  overflow-x: wrap;
   line-height: 2.5;
   scrollbar-gutter: stable;
   white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
 }
 
 .tiptap:focus {
   outline: none;
-}
-
-.tiptap::-webkit-scrollbar {
-  width: 16px;
-  background-color: #2a2a2a;
-}
-
-.tiptap::-webkit-scrollbar-thumb {
-  background-color: #999;
-  border: solid 3.5px #2a2a2a;
-  border-radius: 50px;
-}
-
-.tiptap::-webkit-scrollbar-thumb:hover {
-  cursor: grab;
-  background-color: #ccc;
-}
-
-.tiptap::-webkit-scrollbar-thumb:active {
-  cursor: grabbing;
-  background-color: #eee;
-}
-
-.tiptap::-webkit-scrollbar-track {
-  background-color: #2a2a2a;
-  border-radius: 4px;
-}
-
-.tiptap::-webkit-scrollbar-track:hover {
-  cursor: pointer;
-}
-
-.tiptap::-webkit-scrollbar-button {
-  display: none;
-  background-size: 16px 16px;
-  background-position: center;
-  background-repeat: no-repeat;
-  cursor: pointer;
-}
-
-.tiptap::-webkit-scrollbar-button:vertical:start:decrement {
-  display: block;
-  background-image: url(../../assets/up-arrow.svg);
-}
-
-.tiptap::-webkit-scrollbar-button:vertical:start:active {
-  background-image: url(../../assets/up-arrow-active.svg);
-}
-
-.tiptap::-webkit-scrollbar-button:vertical:end:increment {
-  display: block;
-  background-image: url(../../assets/down-arrow.svg);
-}
-
-.tiptap::-webkit-scrollbar-button:vertical:end:active {
-  background-image: url(../../assets/down-arrow-active.svg);
-}
-
-.tiptap::-webkit-scrollbar-corner {
-  background-color: #2a2a2a;
-}
-
-.tiptap::-moz-selection {
-  background: #39ff141a;
-}
-
-.tiptap::selection {
-  background: #39ff1444;
-}
-
-.tiptap p {
-  margin: 0;
-}
-
-@supports not selector(::-webkit-scrollbar) {
-  .tiptap {
-    scrollbar-width: auto;
-    scrollbar-color: #999 #2a2a2a;
-  }
 }

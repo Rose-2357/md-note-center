@@ -6,6 +6,7 @@ import {
   View,
   Link,
   Image,
+  Font,
 } from "@react-pdf/renderer";
 import Markdown from "react-markdown";
 import { styles } from "./PdfStyles";
@@ -18,6 +19,16 @@ import Checkbox from "./elements/Checkbox";
 import { Children } from "react";
 import { Table, Tbody, Td, Th, Thead, Tr } from "./elements/Table";
 import Hr from "./elements/Hr";
+
+Font.registerHyphenationCallback((word) => {
+  if (word.length > 1) {
+    return word.split("").flatMap((char, index) => {
+      if (index === word.length - 1) return [char];
+      return [char, ""];
+    });
+  }
+  return [word];
+});
 
 const mdComponents = {
   h1: ({ children }) => <H1 style={styles.h1}>{children}</H1>,
@@ -96,8 +107,12 @@ const mdComponents = {
   thead: ({ children }) => <Thead>{children}</Thead>,
   tbody: ({ children }) => <Tbody>{children}</Tbody>,
   tr: ({ children }) => <Tr>{children}</Tr>,
-  th: ({ children }) => <Th>{children}</Th>,
-  td: ({ children }) => <Td>{children}</Td>,
+  th: ({ children, style }) => (
+    <Th style={{ textAlign: style?.textAlign }}>{children}</Th>
+  ),
+  td: ({ children, style }) => (
+    <Td style={{ textAlign: style?.textAlign }}>{children}</Td>
+  ),
   hr: () => <Hr style={styles.hr} />,
 };
 

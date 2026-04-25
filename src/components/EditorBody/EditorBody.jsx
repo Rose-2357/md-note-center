@@ -77,14 +77,30 @@ export default function EditorBody({ renderMode }) {
     },
     img: ({ src, alt }) => <img src={src} alt={alt} className="md-img" />,
     code: ({ children }) => <code className="md-code">{children}</code>,
-    pre: ({ children }) => <pre className="md-pre">{children}</pre>,
+    pre: ({ children }) => (
+      <pre className="md-pre">
+        <div className="md-pre-scroll">{children}</div>
+      </pre>
+    ),
     blockquote: ({ children }) => (
       <blockquote className="md-blockquote">{children}</blockquote>
     ),
-    table: ({ children }) => <table className="md-table">{children}</table>,
+    table: ({ children }) => (
+      <div className="md-table-container">
+        <table className="md-table">{children}</table>
+      </div>
+    ),
     tr: ({ children }) => <tr className="md-tr">{children}</tr>,
-    th: ({ children }) => <th className="md-th">{children}</th>,
-    td: ({ children }) => <td className="md-td">{children}</td>,
+    th: ({ children, style }) => (
+      <th style={{ textAlign: style?.textAlign }} className="md-th">
+        {children}
+      </th>
+    ),
+    td: ({ children, style }) => (
+      <td style={{ textAlign: style?.textAlign }} className="md-td">
+        {children}
+      </td>
+    ),
     hr: () => <hr className="md-hr" />,
     input: ({ type, checked }) => {
       if (type === "checkbox") {

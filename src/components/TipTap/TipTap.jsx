@@ -23,7 +23,7 @@ export default function Tiptap({ update, note, content }) {
   const editor = new Editor({
     extensions: [
       Document.extend({
-        content: "codeBlock", // Only allow a codeBlock at the root
+        content: "codeBlock",
       }),
       CodeBlock,
       Text,

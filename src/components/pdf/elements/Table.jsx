@@ -23,18 +23,18 @@ function Tr({ children }) {
   return <View style={styles.tr}>{children}</View>;
 }
 
-function Th({ children }) {
+function Th({ children, style }) {
   return (
     <View style={styles.th}>
-      <Text>{children}</Text>
+      <Text style={style}>{children}</Text>
     </View>
   );
 }
 
-function Td({ children }) {
+function Td({ children, style }) {
   return (
     <View style={styles.td}>
-      <Text>{children}</Text>
+      <Text style={style}>{children}</Text>
     </View>
   );
 }

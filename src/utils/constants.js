@@ -38,14 +38,13 @@ This is a sentence that includes a footnote reference[^1].
 
 \`inline code here\`
 
-\`\`\`language
+\`\`\`javascript
 // Code block
 function test() {
   console.log("Hello World");
 }
 \`\`\`
 > This is a blockquote. Use it for quotes or to highlight specific text.
-
 | Header 1 | Header 2 | Header 3 |
 |----------|----------|----------|
 | Cell A1   | Cell A2   | Cell A3   |

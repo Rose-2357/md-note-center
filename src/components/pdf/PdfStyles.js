@@ -197,10 +197,4 @@ export const styles = StyleSheet.create({
   "hljs-string": { color: "#ce9178" },
   "hljs-comment": { color: "#6a9955" },
   "hljs-function": { color: "#dcdcaa" },
-  text: {
-    fontFamily: "Consolas",
-    fontSize: 16,
-    lineHeight: 2,
-    whiteSpace: "pre-wrap",
-  },
 });

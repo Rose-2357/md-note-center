@@ -37,7 +37,14 @@ export default function CodeBlock({ code, language }) {
 
         return (
           <View key={i} style={{ flexDirection: "row" }}>
-            <Text style={styles.text}>
+            <Text
+              style={{
+                ...styles.code,
+                border: "none",
+                padding: 0,
+                margin: 0,
+              }}
+            >
               {renderNodes(tree.children)}
               {line.length === 0 ? " " : ""}
             </Text>

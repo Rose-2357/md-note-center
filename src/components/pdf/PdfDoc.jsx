@@ -19,6 +19,7 @@ import Checkbox from "./elements/Checkbox";
 import { Children } from "react";
 import { Table, Tbody, Td, Th, Thead, Tr } from "./elements/Table";
 import Hr from "./elements/Hr";
+import CodeBlock from "./elements/CodeBlock";
 
 Font.registerHyphenationCallback((word) => {
   if (word.length > 1) {
@@ -86,13 +87,11 @@ const mdComponents = {
     <View style={styles.blockquote}>{children}</View>
   ),
   code: ({ children, inline, className }) => {
-    const isInline = inline || !className;
-    const inlineStyles = isInline
-      ? {
-          backgroundColor: "#2a2a2a",
-        }
-      : {};
-    return (
+    const isInline = inline;
+    const inlineStyles = {
+      backgroundColor: "#2a2a2a",
+    };
+    return isInline ? (
       <Text
         style={{
           ...styles.code,
@@ -101,6 +100,13 @@ const mdComponents = {
       >
         {children}
       </Text>
+    ) : (
+      <View style={styles.code}>
+        <CodeBlock
+          code={children}
+          language={className?.replace("language-", "")}
+        />
+      </View>
     );
   },
   table: ({ children }) => <Table style={styles.table}>{children}</Table>,

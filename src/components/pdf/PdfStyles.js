@@ -157,6 +157,8 @@ export const styles = StyleSheet.create({
     borderRadius: 4,
     border: "1px solid #39ff14",
     padding: 8,
+    whiteSpace: "pre-wrap",
+    overflowWrap: "anywhere",
   },
   table: {
     border: "1px solid #ff00ff",
@@ -190,5 +192,15 @@ export const styles = StyleSheet.create({
   },
   hr: {
     marginVertical: 12,
+  },
+  "hljs-keyword": { color: "#569cd6" },
+  "hljs-string": { color: "#ce9178" },
+  "hljs-comment": { color: "#6a9955" },
+  "hljs-function": { color: "#dcdcaa" },
+  text: {
+    fontFamily: "Consolas",
+    fontSize: 16,
+    lineHeight: 2,
+    whiteSpace: "pre-wrap",
   },
 });

@@ -3,6 +3,8 @@ import { SelectedNote } from "../../contexts/SelectedNoteContext";
 import { NotesStateContext } from "../../utils/NotesStateContext";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import normilizeMarkdown from "../../utils/normilizeMarkdown";
 import Tiptap from "../TipTap/TipTap";
 import "./EditorBody.css";
@@ -76,7 +78,24 @@ export default function EditorBody({ renderMode }) {
       );
     },
     img: ({ src, alt }) => <img src={src} alt={alt} className="md-img" />,
-    code: ({ children }) => <code className="md-code">{children}</code>,
+    code({ node, inline, className, children, ...props }) {
+      const match = /language-(\w+)/.exec(className || "");
+
+      return !inline && match ? (
+        <SyntaxHighlighter
+          style={oneDark}
+          language={match[1]}
+          PreTag="div"
+          {...props}
+        >
+          {String(children).replace(/\n$/, "")}
+        </SyntaxHighlighter>
+      ) : (
+        <code className="md-code" {...props}>
+          {children}
+        </code>
+      );
+    },
     pre: ({ children }) => (
       <pre className="md-pre">
         <div className="md-pre-scroll">{children}</div>

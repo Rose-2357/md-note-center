@@ -1,12 +1,15 @@
 .editor-header {
-  position: fixed;
+  position: sticky;
   padding-bottom: 32px;
-  top: 32px;
+  top: 0px;
   left: 0;
-  width: 100%;
   border-bottom: solid 1px #f1f1f1;
   background-color: #111;
+  overflow: hidden;
   z-index: 10;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
 }
 
 .editor-header::before {

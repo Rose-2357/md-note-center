@@ -156,13 +156,15 @@ export default function EditorBody({ renderMode }) {
 
   return (
     <div className="editor-body">
-      {renderMode === "MD" ? (
-        <Tiptap update note={note} content={note.content} />
-      ) : (
-        <Markdown components={markdownComponents} remarkPlugins={[remarkGfm]}>
-          {note.content}
-        </Markdown>
-      )}
+      <div className="editor-body__content">
+        {renderMode === "MD" ? (
+          <Tiptap update note={note} content={note.content} />
+        ) : (
+          <Markdown components={markdownComponents} remarkPlugins={[remarkGfm]}>
+            {note.content}
+          </Markdown>
+        )}
+      </div>
     </div>
   );
 }

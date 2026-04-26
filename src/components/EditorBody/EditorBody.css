@@ -1,13 +1,9 @@
 .editor-body {
-  margin: 130px auto 0;
-  max-width: 960px;
   width: 100%;
 
   z-index: 1;
 
   position: relative;
-
-  overflow: visible;
 
   overflow-y: auto;
   overflow-x: hidden;
@@ -17,8 +13,8 @@
   hyphens: auto;
 }
 
-@media (max-width: 800px) {
-  .editor-body {
-    margin-top: 175px;
-  }
+.editor-body__content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 0;
 }

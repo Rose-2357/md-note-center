@@ -6,6 +6,7 @@ import { defaultNotes } from "../../utils/constants";
 import { NotesContext } from "../../contexts/NotesContext";
 import { SelectedNote } from "../../contexts/SelectedNoteContext";
 import { NotesStateContext } from "../../utils/NotesStateContext";
+import SyntaxGuide from "../SyntaxGuide/SyntaxGuide";
 
 export default function App() {
   const [notes, setNotes] = useState(defaultNotes);
@@ -31,6 +32,7 @@ export default function App() {
             <div className="app__content">
               <Dashboard />
               <Editor />
+              <SyntaxGuide />
             </div>
           </div>
         </NotesContext.Provider>

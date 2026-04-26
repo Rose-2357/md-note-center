@@ -1,0 +1,28 @@
+.syntax-guide-card-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: fit-content;
+  gap: 24px;
+}
+
+.syntax-guide-card-list > .syntax-guide-card:nth-child(3n + 1) {
+  --glow-color: 0, 212, 255;
+}
+
+.syntax-guide-card-list > .syntax-guide-card:nth-child(3n + 2) {
+  --glow-color: 57, 255, 20;
+}
+
+.syntax-guide-card-list > .syntax-guide-card:nth-child(3n + 3) {
+  --glow-color: 255, 0, 255;
+}
+
+@media (max-width: 450px) {
+  .syntax-guide-card-list {
+    grid-template-columns: 100%;
+  }
+}

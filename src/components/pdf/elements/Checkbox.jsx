@@ -14,7 +14,7 @@ export default function Checkbox({ children, style }) {
           position: "absolute",
           width: 12,
           height: 12,
-          border: "1pt solid #39ff14", // Neon Green
+          border: "1pt solid #39ff14",
           marginRight: 6,
           marginTop: 2,
           justifyContent: "center",

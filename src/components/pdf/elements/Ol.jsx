@@ -3,7 +3,6 @@ import { styles } from "../PdfStyles";
 import Li from "./Li";
 
 export default function Ol({ children, style }) {
-  // console.log(children.filter((child) => child !== "\n")[0].props);
   const isFootnote =
     children
       .filter((child) => child !== "\n")[0]

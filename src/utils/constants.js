@@ -62,6 +62,7 @@ function test() {
     title: "Markdown Syntax Guide",
     content: `
     # Markdown Syntax Guide
+    \`code\`
     Here are some common Markdown syntax examples to get you started:
     lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut 
     labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
@@ -76,6 +77,12 @@ function test() {
     title: "Sample Note 1",
     content: `
     # Sample Note 1
+    \`\`\`javascript
+    // Code block
+    function test() {
+      console.log("Hello World");
+    }
+    \`\`\`
     This is a simple sample note to demonstrate the Markdown syntax.
     lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut 
     labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
@@ -91,6 +98,7 @@ function test() {
       "Sample Note 2 the title is gonna overflowwwwwwwww oooouuuuuuuuuuuuu!!!!!",
     content: `
     # Sample Note 2
+    - [ ] aaaaaaaaaaaaa\n
     This is another sample note to demonstrate the Markdown syntax.
     lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut 
     labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 

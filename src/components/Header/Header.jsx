@@ -2,6 +2,7 @@ import logo from "../../assets/logo.svg";
 import bookSvg from "../../assets/book.svg";
 import plusSvg from "../../assets/plus.svg";
 import "./Header.css";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -13,12 +14,14 @@ export default function Header() {
       <nav className="header__nav">
         <ul className="header__nav-list">
           <li className="header__nav-item header__nav-item_glow_magenta">
-            <img
-              src={bookSvg}
-              alt="Syntax Guide"
-              className="header__nav-icon"
-            />
-            <span>Syntax Guide</span>
+            <Link to="/guide" className="header__nav-link">
+              <img
+                src={bookSvg}
+                alt="Syntax Guide"
+                className="header__nav-icon"
+              />
+              <span>Syntax Guide</span>
+            </Link>
           </li>
           <li className="header__nav-item header__nav-item_glow_green">
             <img src={plusSvg} alt="New Note" className="header__nav-icon" />

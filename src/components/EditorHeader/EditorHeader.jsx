@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { usePDF } from "@react-pdf/renderer";
 import Markdown from "react-markdown";
-import { SelectedNote } from "../../contexts/SelectedNoteContext";
+import { SelectedNoteContext } from "../../contexts/SelectedNoteContext";
 import downloadIcon from "../../assets/download-icon.svg";
 import "./EditorHeader.css";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
@@ -9,9 +9,10 @@ import { useActive } from "../../hooks/useActive";
 import normilizeMarkdown from "../../utils/normilizeMarkdown";
 import PdfDoc from "../pdf/PdfDoc";
 import GoBackButton from "../GoBackButton/GoBackButton";
+import { Link } from "react-router-dom";
 
 export default function EditorHeader({ setRenderMode }) {
-  const note = useContext(SelectedNote);
+  const note = useContext(SelectedNoteContext)[0];
 
   const [isPendingDownload, setIsPendingDownload] = useState(false);
 
@@ -66,7 +67,13 @@ export default function EditorHeader({ setRenderMode }) {
     <div className="editor-header">
       <div className="editor-header__content">
         <div className="editor-header__column">
-          <GoBackButton />
+          <Link
+            to="/"
+            className="editor-header__back-button"
+            onClick={() => window.scrollTo(0, 0)}
+          >
+            <GoBackButton />
+          </Link>
           <h2 className="editor-header__title">{note.title}</h2>
         </div>
         <div className="editor-header__column">

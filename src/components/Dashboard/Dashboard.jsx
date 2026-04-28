@@ -4,7 +4,7 @@ import Footer from "../Footer/Footer";
 
 export default function Dashboard() {
   return (
-    <div style={{ display: "none" }} className="dashboard">
+    <div className="dashboard">
       <Header />
       <Main />
       <Footer />

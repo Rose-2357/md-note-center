@@ -25,6 +25,14 @@
     0 0 20px #00d4ff66;
 }
 
+.header__nav-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .header__nav-list {
   padding: 0;
   display: flex;

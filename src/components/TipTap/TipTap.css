@@ -2,10 +2,8 @@
   width: 100%;
   height: calc(100vh - (130px + 150px));
   font-family: "Consolas", "Courier New", Courier, monospace;
-  overflow-y: auto;
   overflow-x: wrap;
   line-height: 2.5;
-  scrollbar-gutter: stable;
   white-space: pre-wrap;
   overflow-wrap: break-word;
   word-break: normal;
@@ -14,4 +12,8 @@
 
 .tiptap:focus {
   outline: none;
+}
+
+.tiptap::selection {
+  background-color: #39ff1433;
 }

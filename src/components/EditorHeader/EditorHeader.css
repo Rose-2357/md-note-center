@@ -1,36 +1,29 @@
 .editor-header {
   position: sticky;
-  padding-bottom: 32px;
+  padding: 32px 0;
   top: 0px;
   left: 0;
   border-bottom: solid 1px #f1f1f1;
   background-color: #111;
-  overflow: hidden;
+  overflow: visible;
+  left: 0;
+  margin-right: calc(50% - 50vw);
   z-index: 10;
   width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+  margin-left: 50%;
+  transform: translateX(-50%);
+  max-width: 100vw;
 }
 
-.editor-header::before {
+.editor__header::before {
   content: "";
+  display: block;
   position: absolute;
-  top: -60px;
+  top: 0;
   left: 0;
   width: 100vw;
-  height: 60px;
-  background-color: #111;
-  z-index: -1;
-}
-
-.editor-header::after {
-  content: "";
-  position: absolute;
-  bottom: -21px;
-  left: 0;
-  width: 100vw;
-  height: 20px;
-  background-color: #111;
+  height: 32px;
+  background-color: #f11;
   z-index: -1;
 }
 
@@ -42,12 +35,17 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
+  z-index: 2;
 }
 
 .editor-header__column {
   display: flex;
   align-items: center;
   gap: 24px;
+}
+
+.editor-header__back-button {
+  width: 46px;
 }
 
 .editor-header__title {

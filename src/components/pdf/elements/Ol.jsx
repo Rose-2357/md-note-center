@@ -1,8 +1,14 @@
 import { View, Text } from "@react-pdf/renderer";
 import { styles } from "../PdfStyles";
 import Li from "./Li";
+import { useContext } from "react";
+import { IsInsideQuoteContext } from "../../../contexts/IsInsideQuoteContext";
 
-export default function Ol({ children, style }) {
+export default function Ol({ children, node }) {
+  const isInsideQuote = useContext(IsInsideQuoteContext);
+
+  const style = isInsideQuote ? styles.quoteList : styles.list;
+
   const isFootnote =
     children
       .filter((child) => child !== "\n")[0]

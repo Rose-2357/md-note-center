@@ -131,11 +131,25 @@ export const styles = StyleSheet.create({
     marginTop: 8,
     marginBottom: 10,
   },
+  quoteList: {
+    margin: 0,
+    padding: 0,
+    fontSize: 16,
+    lineHeight: 0,
+    fontWeight: 400,
+  },
   li: {
     fontSize: 16,
     lineHeight: 1.5,
     fontWeight: 400,
     marginVertical: 20,
+  },
+  quoteLi: {
+    marginVertical: 5,
+    padding: 0,
+    fontSize: 16,
+    lineHeight: 1.5,
+    fontWeight: 400,
   },
   img: {
     width: 300,
@@ -144,7 +158,9 @@ export const styles = StyleSheet.create({
   },
   blockquote: {
     borderLeft: "3px solid #ff00ff",
+    marginVertical: 20,
     paddingLeft: 16,
+    flexDirection: "column",
   },
   code: {
     backgroundColor: "#1e1e1e",

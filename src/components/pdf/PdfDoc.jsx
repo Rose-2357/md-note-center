@@ -16,10 +16,11 @@ import Del from "./elements/Del";
 import Ul from "./elements/Ul";
 import Ol from "./elements/Ol";
 import Checkbox from "./elements/Checkbox";
-import { Children } from "react";
+import { Children, isValidElement, useContext } from "react";
 import { Table, Tbody, Td, Th, Thead, Tr } from "./elements/Table";
 import Hr from "./elements/Hr";
 import CodeBlock from "./elements/CodeBlock";
+import { IsInsideQuoteContext } from "../../contexts/IsInsideQuoteContext";
 
 Font.registerHyphenationCallback((word) => {
   if (word.length > 1) {
@@ -68,13 +69,21 @@ const mdComponents = {
     return <Link src={href}>{children}</Link>;
   },
   sup: ({ children }) => <Text style={styles.sup}>{children}</Text>,
-  ul: ({ children }) => <Ul>{children}</Ul>,
-  ol: ({ children }) => <Ol>{children}</Ol>,
-  li: ({ children, id }) => (
-    <Text id={id} style={styles.li}>
-      {children}
-    </Text>
-  ),
+  ul: ({ children, node }) => <Ul node={node}>{children}</Ul>,
+  ol: ({ children, node }) => <Ol node={node}>{children}</Ol>,
+  li: ({ children, id }) => {
+    const isInsideQuote = useContext(IsInsideQuoteContext);
+
+    console.log(isInsideQuote);
+
+    const style = isInsideQuote ? styles.quoteLi : styles.li;
+
+    return (
+      <Text id={id} style={style}>
+        {children}
+      </Text>
+    );
+  },
   input: ({ type, checked }) => {
     if (type === "checkbox") {
       return <Checkbox checked={checked} />;
@@ -83,9 +92,23 @@ const mdComponents = {
   },
 
   img: ({ src }) => <Image src={src} style={styles.img} />,
-  blockquote: ({ children }) => (
-    <View style={styles.blockquote}>{children}</View>
-  ),
+  blockquote: ({ children, node }) => {
+    const validChildren = Children.toArray(children).filter((child) => {
+      return child !== "\n" && child !== "";
+    });
+
+    if (validChildren.length === 0) return null;
+
+    console.log(validChildren);
+
+    return (
+      <IsInsideQuoteContext.Provider value={true}>
+        <View style={styles.blockquote} wrap={false}>
+          {validChildren}
+        </View>
+      </IsInsideQuoteContext.Provider>
+    );
+  },
   code: ({ children, inline, className }) => {
     const isInline = inline;
     const inlineStyles = {

@@ -20,6 +20,12 @@ export default function Tiptap({ update, note, content }) {
     }
   };
 
+  function save() {
+    if (update && note) {
+      setNotes([...notes.filter((n) => n.id !== note.id), note]);
+    }
+  }
+
   const editor = new Editor({
     extensions: [
       Document.extend({
@@ -41,18 +47,14 @@ export default function Tiptap({ update, note, content }) {
         note.lastVisited = Date.now();
       }
     },
-    onBlur: () => {
-      if (update && note) {
-        setNotes([...notes.filter((n) => n.id !== note.id), note]);
-      }
-    },
+    onBlur: save,
     onUnmount: () => {
       window.removeEventListener("keydown", onWindowKeydown);
     },
     addKeyboardShortcuts() {
       return {
         "Mod-s": () => {
-          this.editor.blur();
+          save();
           return true;
         },
       };

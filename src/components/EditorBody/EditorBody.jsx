@@ -12,7 +12,6 @@ export default function EditorBody({ renderMode }) {
 
   useEffect(() => {
     note.lastVisited = Date.now();
-    console.log("note updated");
 
     setNotes((prevNotes) => [
       ...prevNotes.filter((n) => n.id !== note.id),

@@ -10,14 +10,9 @@ export default function CardList() {
   const navigate = useNavigate();
   function onClick(e) {
     e.preventDefault();
-    console.log(e.target.closest(".card").dataset.id);
     const id = e.target.closest(".card").dataset.id;
     navigate(`/editor/${id}`);
   }
-
-  console.log(
-    notes.sort((a, b) => new Date(b.lastVisited) - new Date(a.lastVisited)),
-  );
 
   return (
     <ul className="card-list" onClick={onClick}>

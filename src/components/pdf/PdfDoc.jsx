@@ -74,7 +74,6 @@ const mdComponents = {
   li: ({ children, id }) => {
     const isInsideQuote = useContext(IsInsideQuoteContext);
 
-    console.log(isInsideQuote);
 
     const style = isInsideQuote ? styles.quoteLi : styles.li;
 
@@ -99,7 +98,6 @@ const mdComponents = {
 
     if (validChildren.length === 0) return null;
 
-    console.log(validChildren);
 
     return (
       <IsInsideQuoteContext.Provider value={true}>

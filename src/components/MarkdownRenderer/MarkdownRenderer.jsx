@@ -31,11 +31,6 @@ export default function MarkdownRenderer({
     ul: ({ children }) => <ul className="md-ul">{children}</ul>,
     ol: ({ children }) => <ol className="md-ol">{children}</ol>,
     li: ({ children, node }) => {
-      console.log(
-        Array.from(children).filter((child) => child !== "\n")[0]?.props?.node
-          ?.tagName,
-      );
-
       const childrenArray = Array.from(children).filter(
         (child) => child !== "\n",
       );
@@ -62,11 +57,8 @@ export default function MarkdownRenderer({
 
     a: ({ children, href, id }) => {
       function handleClick(e) {
-        console.log(footnoteRefs.current);
         if (href?.startsWith("#user-content-fn-")) {
-          console.log(id, "saving pos");
           footnoteRefs.current["#" + id] = window.scrollY;
-          console.log(footnoteRefs.current);
           return;
         }
 
@@ -76,7 +68,6 @@ export default function MarkdownRenderer({
           savedPos !== undefined &&
           href?.startsWith("#user-content-fnref-")
         ) {
-          console.log(savedPos);
           e.preventDefault();
           window.scrollTo(0, savedPos);
         }
@@ -134,7 +125,6 @@ export default function MarkdownRenderer({
           })}
         </blockquote>
       );
-
     },
     table: ({ children }) => (
       <div className="md-table-container">

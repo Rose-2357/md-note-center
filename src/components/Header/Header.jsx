@@ -3,8 +3,16 @@ import bookSvg from "../../assets/book.svg";
 import plusSvg from "../../assets/plus.svg";
 import "./Header.css";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { SetOpenModalContext } from "../../contexts/setOpenModalContext";
 
 export default function Header() {
+  const setOpenModal = useContext(SetOpenModalContext);
+
+  const onOpenAddItemModal = () => {
+    setOpenModal("AddItemModal");
+  };
+
   return (
     <header className="header">
       <div className="header__branding">
@@ -23,7 +31,10 @@ export default function Header() {
               <span>Syntax Guide</span>
             </Link>
           </li>
-          <li className="header__nav-item header__nav-item_glow_green">
+          <li
+            className="header__nav-item header__nav-item_glow_green"
+            onClick={onOpenAddItemModal}
+          >
             <img src={plusSvg} alt="New Note" className="header__nav-icon" />
             <span>New Note</span>
           </li>

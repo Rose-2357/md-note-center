@@ -17,10 +17,6 @@ export default function EditorBody({ renderMode }) {
       ...prevNotes.filter((n) => n.id !== note.id),
       note,
     ]);
-
-    console.log(
-      notes.sort((a, b) => new Date(b.lastVisited) - new Date(a.lastVisited)),
-    );
   }, [note]);
 
   note.content = normilizeMarkdown(note.content);
@@ -29,7 +25,16 @@ export default function EditorBody({ renderMode }) {
     <div className="editor-body">
       <div className="editor-body__content">
         {renderMode === "MD" ? (
-          <Tiptap update note={note} content={note.content} />
+          <>
+            <ul className="editor-body__tags">
+              {note.tags.map((tag) => (
+                <li key={`${tag}`} data-tag={tag} className="editor-body__tag">
+                  {tag}
+                </li>
+              ))}
+            </ul>
+            <Tiptap update note={note} content={note.content} />
+          </>
         ) : (
           <MarkdownRenderer note={note} notes={notes} setNotes={setNotes}>
             {note.content}

@@ -1,15 +1,58 @@
+import { useEffect, useState } from "react";
 import "./AddItemModal.css";
+import useForm from "../../hooks/useForm";
 
 export default function AddItemModal({ isOpen, onClose, onAdd }) {
+  const [tags, setTags] = useState([]);
+
+  const [
+    values,
+    setValues,
+    resetField,
+    resetForm,
+    errors,
+    updateFormValidity,
+    isFormValid,
+  ] = useForm({
+    title: "",
+    tags: "",
+  });
+
+  console.log(errors);
+
   function onAddTag(e) {
     e.preventDefault();
-    // Implementation for adding a tag
+    const newTag = e.currentTarget.previousSibling.value.trim();
+    if (newTag && !tags.includes(newTag)) {
+      setTags((prevTags) => [...prevTags, newTag]);
+      resetField("tags");
+    }
   }
 
   function closeOnOverlayClick(e) {
     if (e.target.classList.contains("modal")) {
       onClose(e);
     }
+  }
+
+  function onFormBlur(e) {
+    console.log("Form blurred", e.target.name);
+    updateFormValidity(e.currentTarget);
+  }
+
+  function onDisableButtonClick(e) {
+    if (isFormValid) return;
+    e.preventDefault();
+    updateFormValidity(e.currentTarget.closest("form"));
+  }
+
+  function onSubmit(e) {
+    e.preventDefault();
+    if (!isFormValid) return;
+    onAdd({ title: values.title, tags });
+    resetForm();
+    setTags([]);
+    onClose(e);
   }
 
   return (
@@ -34,25 +77,38 @@ export default function AddItemModal({ isOpen, onClose, onAdd }) {
           </button>
         </div>
         <div className="modal__content">
-          <form>
+          <form onBlur={onFormBlur} onSubmit={onSubmit} className="modal__form">
             <label className="modal__label" htmlFor="title">
               Title
             </label>
+            <span className="modal__error-message">{errors.title}</span>
             <input
               className="modal__input modal__input_glow_blue"
               type="text"
               id="title"
+              name="title"
               placeholder="Note title..."
+              value={values.title}
+              onChange={setValues}
+              required
             />
             <fieldset className="modal__fieldset">
               <legend className="modal__label">Tags</legend>
               <input
                 className="modal__input"
                 id="tags"
+                name="tags"
                 type="text"
                 placeholder="Add a tag..."
+                value={values.tags}
+                onChange={setValues}
+                maxLength="15"
               />
-              <button className="modal__add-tag-button" onClick={onAddTag}>
+              <button
+                className={`modal__add-tag-button ${!values.tags ? "modal__add-tag-button_disabled" : ""}`}
+                onClick={onAddTag}
+                disabled={!values.tags}
+              >
                 <svg
                   className="modal__add-tag-icon"
                   width="12"
@@ -65,6 +121,24 @@ export default function AddItemModal({ isOpen, onClose, onAdd }) {
                 </svg>
               </button>
             </fieldset>
+            <ul className="modal__tags-list">
+              {tags.map((tag, index) => (
+                <li key={index} className="modal__tag-item">
+                  <span className="modal__tag">{tag}</span>
+                  <svg
+                    className="modal__remove-tag-icon"
+                    viewBox="0 0 12 12"
+                    strokeLinecap="round"
+                    stroke="#39ff14"
+                    strokeWidth="2"
+                    onClick={() => setTags(tags.filter((t) => t !== tag))}
+                  >
+                    <line x1="1" y1="1" x2="11" y2="11" />
+                    <line x1="11" y1="1" x2="1" y2="11" />
+                  </svg>
+                </li>
+              ))}
+            </ul>
             <div className="modal__buttons">
               <button
                 className="modal__button modal__cancel-button"
@@ -72,12 +146,17 @@ export default function AddItemModal({ isOpen, onClose, onAdd }) {
               >
                 Cancel
               </button>
-              <button
-                className="modal__button modal__add-button"
-                onClick={onAdd}
+              <span
+                className="modal__button-wrapper"
+                onClick={onDisableButtonClick}
               >
-                Create Note
-              </button>
+                <button
+                  className={`modal__button modal__add-button ${!isFormValid ? "modal__add-button_disabled" : ""}`}
+                  aria-disabled={!isFormValid}
+                >
+                  Create Note
+                </button>
+              </span>
             </div>
           </form>
         </div>

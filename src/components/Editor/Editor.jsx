@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { SelectedNoteContext } from "../../contexts/SelectedNoteContext";
 import EditorBody from "../EditorBody/EditorBody";
 import EditorHeader from "../EditorHeader/EditorHeader";
@@ -11,11 +11,15 @@ export default function Editor() {
 
   const [selectedNote, setSelectedNote] = useContext(SelectedNoteContext);
 
+  console.log(selectedNote);
+
   const notes = useContext(NotesStateContext)[0];
 
   const { id } = useParams();
+  const noteId = Number(id);
+  const chosenNote = notes.filter((n) => n.id === noteId)[0];
 
-  const chosenNote = notes.filter((n) => n.id === id)[0];
+  console.log(id);
 
   if (!chosenNote)
     return (
@@ -32,7 +36,9 @@ export default function Editor() {
       </div>
     );
 
-  setSelectedNote(chosenNote);
+  useEffect(() => {
+    if (chosenNote) setSelectedNote(chosenNote);
+  }, [chosenNote, setSelectedNote]);
 
   return (
     <div style={{ display: "block" }} className="editor">

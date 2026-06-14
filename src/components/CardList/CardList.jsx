@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 export default function CardList() {
   const { notes } = useContext(NotesContext);
 
+  console.log("card list rendered");
+
   const navigate = useNavigate();
   function onClick(e) {
     e.preventDefault();

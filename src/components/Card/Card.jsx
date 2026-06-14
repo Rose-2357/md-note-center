@@ -93,7 +93,8 @@ export default function Card({ note }) {
     ),
   };
 
-  const mdCharacters = note.content.match(/[\\`*_{}[\]()#+\-.!~]/g).length;
+  const mdCharacters =
+    note.content.match(/[\\`*_{}[\]()#+\-.!~]/g)?.length || 0;
 
   return (
     <li className="card" data-id={note.id}>

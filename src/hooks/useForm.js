@@ -8,10 +8,14 @@ export default function useForm(initialValues) {
 
   const [isFormValid, setIsFormValid] = useState(false);
 
+  // function resetErrors() {
+  //   Object.keys(values).forEach((field) => {
+  //     setErrors((prevErrors) => ({ ...prevErrors, [field]: "" }));
+  //   });
+  // }
+
   function resetErrors() {
-    Object.keys(values).forEach((field) => {
-      setErrors((prevErrors) => ({ ...prevErrors, [field]: "" }));
-    });
+    setErrors({});
   }
 
   function updateFormValidity(form) {
@@ -29,8 +33,21 @@ export default function useForm(initialValues) {
     setValues({ ...values, [fieldName]: "" });
   }
 
+  // function resetForm() {
+  //   setValues(initialValues);
+  //   resetErrors();
+  //   setIsFormValid(false);
+  // }
+
   function resetForm() {
     setValues(initialValues);
+    setErrors({});
+    setIsFormValid(false);
+  }
+
+  function displayValidform() {
+    setIsFormValid(true);
+    resetErrors();
   }
 
   return [
@@ -44,5 +61,6 @@ export default function useForm(initialValues) {
     errors,
     updateFormValidity,
     isFormValid,
+    displayValidform,
   ];
 }

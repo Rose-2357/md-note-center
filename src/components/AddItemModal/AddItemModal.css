@@ -88,13 +88,27 @@
 }
 
 .modal__label {
-  display: block;
+  display: inline-block;
   margin: 16px 0 8px;
   font-size: 18px;
   color: #39ff14;
   text-shadow:
     0 0 10px #39ff14cc,
     0 0 20px #39ff1466;
+}
+
+.modal__error-message {
+  display: inline-block;
+  margin-left: 4wpx;
+  color: #ff073a;
+  font-weight: 600;
+  font-size: 14px;
+  text-shadow:
+    0 0 6px rgba(255, 7, 58, 0.9),
+    0 0 12px rgba(255, 7, 58, 0.5);
+  background: rgba(255, 7, 58, 0.03);
+  padding: 0 4px;
+  line-height: 1;
 }
 
 .modal__input {

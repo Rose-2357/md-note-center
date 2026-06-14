@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./AddItemModal.css";
 import useForm from "../../hooks/useForm";
 
 export default function AddItemModal({ isOpen, onClose, onAdd }) {
   const [tags, setTags] = useState([]);
+  const skipNextValidation = useRef(false);
 
   const [
     values,
@@ -13,6 +14,7 @@ export default function AddItemModal({ isOpen, onClose, onAdd }) {
     errors,
     updateFormValidity,
     isFormValid,
+    displayValidform,
   ] = useForm({
     title: "",
     tags: "",
@@ -37,6 +39,10 @@ export default function AddItemModal({ isOpen, onClose, onAdd }) {
 
   function onFormBlur(e) {
     console.log("Form blurred", e.target.name);
+    if (skipNextValidation.current) {
+      skipNextValidation.current = false;
+      return;
+    }
     updateFormValidity(e.currentTarget);
   }
 
@@ -52,6 +58,7 @@ export default function AddItemModal({ isOpen, onClose, onAdd }) {
     onAdd({ title: values.title, tags });
     resetForm();
     setTags([]);
+    skipNextValidation.current = true;
     onClose(e);
   }
 
@@ -77,11 +84,16 @@ export default function AddItemModal({ isOpen, onClose, onAdd }) {
           </button>
         </div>
         <div className="modal__content">
-          <form onBlur={onFormBlur} onSubmit={onSubmit} className="modal__form">
+          <form
+            onChange={displayValidform}
+            onBlur={onFormBlur}
+            onSubmit={onSubmit}
+            className="modal__form"
+          >
             <label className="modal__label" htmlFor="title">
               Title
             </label>
-            <span className="modal__error-message">{errors.title}</span>
+            <span className="modal__error-message">{`${errors.title ? `<<${errors.title}>>` : ""}`}</span>
             <input
               className="modal__input modal__input_glow_blue"
               type="text"

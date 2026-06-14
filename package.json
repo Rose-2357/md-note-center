@@ -12,6 +12,7 @@
   "dependencies": {
     "@floating-ui/dom": "^1.7.6",
     "@react-pdf/renderer": "^4.5.1",
+    "@tiptap/extension-placeholder": "^3.22.4",
     "@tiptap/markdown": "^3.22.4",
     "@tiptap/pm": "^3.22.4",
     "@tiptap/react": "^3.22.4",
